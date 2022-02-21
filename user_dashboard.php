@@ -15,7 +15,7 @@
             $table .= "<tr>";
             $table .= "<td>${row["name"]}</td>";
             $table .= "<td>${row["description"]}</td>";
-            $table .= "<td><a class='btn btn-primary' href='course_view.php?course_id=${row["ID"]}'>WATCH NOW</a></td>";
+            $table .= "<td><a class='btn btn-primary' href='course_view.php?course_id=${row["id"]}'>WATCH NOW</a></td>";
             $table .= "</tr>";
         }
     }
@@ -49,11 +49,17 @@
 
         </nav>
 
-        <div class="container w-50">
+        <div class="container w-50 mt-4 mb-4">
             Welcome, <?php echo $f_name; ?>
 
             <table class="table table-hover">
-                <?php echo $table; ?>
+                <thead>
+                    <th class="w-25">Course Name</th>
+                    <th>Course Description</th>
+                </thead>
+                <tbody>
+                    <?php echo $table; ?>
+                </tbody>
             </table>
         </div>
     </body>
