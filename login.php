@@ -1,5 +1,8 @@
 <?php
-
+    $warnings = "";
+    if(filter_input(INPUT_GET, "flag") == true) {
+        $warnings = "<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='btn-close' data-bs-dismiss='alert'></button>You must be logged in to view this feature.</div>";
+    }
 ?>
 <html>
     <head>
@@ -28,7 +31,9 @@
 
         </nav>
 
-        <div class="container w-50">
+        <div class="container w-50 mt-4 mb-4">
+
+            <?php echo $warnings; ?>
 
             <form action="user_auth.php" method="POST">
                 <div class="mb-3 mt-3">

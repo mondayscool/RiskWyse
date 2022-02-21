@@ -1,6 +1,8 @@
 <?php
     session_start();
 
+    include('auth_check.php');
+
     $course_id = filter_input(INPUT_GET, 'course_id');
     $video_id = filter_input(INPUT_GET, 'video_id');
 
@@ -62,9 +64,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.php">Login</a>
-                    </li>
+                    <?php
+                    if(!isset($_SESSION["user_id"])) {
+                        echo "<li class='nav-item'><a class='nav-link' href='login.php'>Login</a></li>";
+                    } else {
+                        echo "<li class='nav-item'><a class='nav-link' href='logout.php'>Logout</a></li>";
+                    }
+                    ?>
                 </ul>
             </div>
 
