@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     include('../global.php');
 
     $connection = mysqli_connect("69.172.204.200", "mondaysc_riskwyse_user", "Spaceballs1!", "mondaysc_riskwyse");

@@ -23,7 +23,7 @@
 
         <?php include('navbar.php'); ?>
 
-        <div class="container">
+        <div class="container w-50">
             <a class="btn btn-secondary" href="login.php"><< Back</a>
             <h3>Create Account</h3>
 

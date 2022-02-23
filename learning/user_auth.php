@@ -19,6 +19,6 @@
     if(mysqli_num_rows($auth_result) == 1) {
         header('Location: user_dashboard.php');
     } else {
-        header('Location: learning_home.php');
+        header('Location: login.php?failed_login=true');
     }
 

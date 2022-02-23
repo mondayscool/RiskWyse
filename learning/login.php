@@ -2,7 +2,8 @@
     include('../global.php');
 
     $flagged = filter_input(INPUT_GET, "flag");
-    $acc_created = filter_input(INPUT_GET, 'acc_created');
+    $acc_created = filter_input(INPUT_GET, "acc_created");
+    $failed_login = filter_input(INPUT_GET, "failed_login");
 
     $warnings = "";
     if($flagged) {
@@ -11,6 +12,10 @@
 
     if($acc_created) {
         $warnings .= "<div class='alert alert-success alert-dismissible fade show'><button type='button' class='btn-close' data-bs-dismiss='alert'></button>Account created! Please log in below.</div>";
+    }
+
+    if($failed_login) {
+        $warnings .= "<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='btn-close' data-bs-dismiss='alert'></button>Your email or password do not match our records.</div>";
     }
 ?>
 <html>
