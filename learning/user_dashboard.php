@@ -2,6 +2,7 @@
     session_start();
 
     include('auth_check.php');
+    include('../global.php');
 
     $user_id = $_SESSION["user_id"];
     $f_name = $_SESSION["f_name"];
@@ -27,33 +28,17 @@
 <html>
     <head>
         <title>RiskWyse : Financial Learning</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css" />
-        <script src="js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="<?php if (isset($css_path)) {
+            echo $css_path;
+        } ?>" />
+        <script src="<?php if (isset($js_path)) {
+            echo $js_path;
+        } ?>"></script>
     </head>
 
     <body>
 
-        <nav class="navbar navbar-expand-lg bg-secondary">
-
-            <div class="container-fluid">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="learning_home.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <?php
-                    if(!isset($_SESSION["user_id"])) {
-                        echo "<li class='nav-item'><a class='nav-link' href='login.php'>Login</a></li>";
-                    } else {
-                        echo "<li class='nav-item'><a class='nav-link' href='logout.php'>Logout</a></li>";
-                    }
-                    ?>
-                </ul>
-            </div>
-
-        </nav>
+        <?php include('navbar.php'); ?>
 
         <div class="container w-50 mt-4 mb-4">
             Welcome, <?php echo $f_name; ?>
